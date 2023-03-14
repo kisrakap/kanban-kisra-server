@@ -5,7 +5,7 @@ async function authentication(req, res, next){
  let access_token = req.headers.access_token
 
  try {
-    if(!access_token) throw {msg: 'Token not found', status: 401}
+    if(!access_token) throw {msg: 'Token not found authen', status: 401}
     else {
         let decoded = verifyToken(access_token)
         let user = await User.findOne({where: {email: decoded.email}})

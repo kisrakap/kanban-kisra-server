@@ -5,7 +5,7 @@ function authorization(req, res, next){
 
     Task.findByPk(id)
     .then( data =>{
-        if (!data) throw {msg: "Task not found", status: 400}
+        if (!data) throw {msg: "Task not found auto", status: 400}
         else if (data.UserId === req.userData.id) next()
         else throw {msg: "You're not authorize to do this", status: 403}
     })
