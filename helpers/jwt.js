@@ -1,12 +1,12 @@
-let jwt = require('jsonwebtoken')
-let secret = "rahasia"
+let jwt = require("jsonwebtoken");
+let secret = process.env.JWT_SECRET || "rahasia";
 
-function generateToken(payload){
-    return jwt.sign(payload, secret)
+function generateToken(payload) {
+  return jwt.sign(payload, secret);
 }
 
-function verifyToken(token){
-    return jwt.verify(token, secret)
+function verifyToken(token) {
+  return jwt.verify(token, secret);
 }
 
-module.exports = {generateToken, verifyToken}
+module.exports = { generateToken, verifyToken };
